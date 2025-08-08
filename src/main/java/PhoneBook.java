@@ -14,6 +14,10 @@ public class PhoneBook {
         return contacts.get(name);
     }
 
+    public void printAllNames() {
+
+    }
+
     public int add(String name, String phoneNumber) {
         if (!contacts.containsKey(name)) {
             contacts.put(name, phoneNumber);
