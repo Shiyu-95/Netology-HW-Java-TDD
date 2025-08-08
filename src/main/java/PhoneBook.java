@@ -1,9 +1,10 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class PhoneBook {
 
-    private Map<String, String> contacts = new HashMap<>();
+    private TreeMap<String, String> contacts = new TreeMap<>();
     private final Map<String, String> numbersToNames = new HashMap<>();
 
     public String findByNumber(String number) {
@@ -15,7 +16,9 @@ public class PhoneBook {
     }
 
     public void printAllNames() {
-
+        for (String name : contacts.keySet()) {
+            System.out.println(name);
+        }
     }
 
     public int add(String name, String phoneNumber) {
