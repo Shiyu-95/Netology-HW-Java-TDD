@@ -4,7 +4,7 @@ import java.util.TreeMap;
 
 public class PhoneBook {
 
-    private TreeMap<String, String> contacts = new TreeMap<>();
+    private final TreeMap<String, String> contacts = new TreeMap<>();
     private final Map<String, String> numbersToNames = new HashMap<>();
 
     public String findByNumber(String number) {
@@ -24,7 +24,7 @@ public class PhoneBook {
     public int add(String name, String phoneNumber) {
         if (!contacts.containsKey(name)) {
             contacts.put(name, phoneNumber);
-            numbersToNames.put(phoneNumber, name); // <-- добавить эту строку
+            numbersToNames.put(phoneNumber, name);
         }
         return contacts.size();
     }
