@@ -10,6 +10,10 @@ public class PhoneBook {
         return numbersToNames.get(number);
     }
 
+    public String findByName(String name) {
+        return null;
+    }
+
     public int add(String name, String phoneNumber) {
         if (!contacts.containsKey(name)) {
             contacts.put(name, phoneNumber);

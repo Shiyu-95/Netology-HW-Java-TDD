@@ -25,6 +25,21 @@ public class PhoneBookTest {
     }
 
     @Test
+    void testFindByNameReturnsNumber() {
+        phoneBook.add("Alice", "+111");
+        phoneBook.add("Bob", "+222");
+
+        assertEquals("+111", phoneBook.findByName("Alice"));
+        assertEquals("+222", phoneBook.findByName("Bob"));
+    }
+
+    @Test
+    void testFindByNameReturnsNullIfNotFound() {
+        phoneBook.add("Charlie", "+333");
+        assertNull(phoneBook.findByName("NonExist"), "Должна возвращаться null, если имя отсутствует");
+    }
+
+    @Test
     void testAddNewContactReturnsOne() {
         int count = phoneBook.add("Alice", "+123456789");
         assertEquals(1, count, "После добавления одного контакта размер должен быть 1");
