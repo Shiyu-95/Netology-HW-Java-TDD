@@ -8,6 +8,22 @@ public class PhoneBookTest {
 
     PhoneBook phoneBook = new PhoneBook();
 
+
+    @Test
+    void testFindByNumberReturnsName() {
+        phoneBook.add("Alice", "+111");
+        phoneBook.add("Bob", "+222");
+
+        assertEquals("Alice", phoneBook.findByNumber("+111"));
+        assertEquals("Bob", phoneBook.findByNumber("+222"));
+    }
+
+    @Test
+    void testFindByNumberReturnsNullIfNotFound() {
+        phoneBook.add("Charlie", "+333");
+        assertNull(phoneBook.findByNumber("+999"), "Должна возвращаться null для отсутствующего номера");
+    }
+
     @Test
     void testAddNewContactReturnsOne() {
         int count = phoneBook.add("Alice", "+123456789");
